@@ -5,5 +5,5 @@ import torch
 
 
 print(np.__version__)
+print(pd.__version__)
 print(torch.__version__)
-print (torch.__version__)
