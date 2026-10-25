@@ -1,65 +1,103 @@
-# NPU 기반 온디바이스 AI 모델 경량화·추론 실무
+<div align="center">
 
-2026 수도권 ICT 이노베이션스퀘어 확산사업 · 인공지능(NPU) 과정 실습 저장소
+# NPU 기반 온디바이스 AI 모델 경량화 및 추론 실무
 
-## 과정 개요
+**2026 수도권 ICT 이노베이션스퀘어 확산사업 인공지능(NPU) 과정 실습 저장소**
+
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.12_CPU-EE4C2C?logo=pytorch&logoColor=white)
+![ONNX](https://img.shields.io/badge/ONNX-Runtime-005CED?logo=onnx&logoColor=white)
+![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi_5-AI_HAT+-A22846?logo=raspberrypi&logoColor=white)
+
+</div>
+
+<br>
+
+## 📌 과정 소개
+
+이 저장소는 클라우드가 아닌 기기 안에서 AI 모델을 돌리는 온디바이스 AI를 다루는 40시간 과정의 실습 코드와 정리 노트를 모아 둔 곳입니다. 과정은 사전학습 모델을 ONNX로 변환하고 FP16과 INT8로 경량화한 뒤, Raspberry Pi 5에 장착한 NPU 가속기에서 추론하여 CPU 대비 성능을 비교하는 흐름으로 진행됩니다.
 
 | 항목 | 내용 |
+|:---:|---|
+| 교육 기간 | 2026년 10월 25일 ~ 11월 14일, 주말 5일 |
+| 교육일 | 10/25, 11/1, 11/7, 11/8, 11/14 |
+| 교육 시간 | 하루 09:00 ~ 18:00, 총 40시간 |
+| 교육 방식 | 오프라인 대면 교육 |
+
+<br>
+
+## 🧰 실습 장비
+
+과정에서 지원받은 장비는 Raspberry Pi 5 보드와 NPU 가속기, 카메라 모듈로 구성되며, 이 장비 위에서 카메라 입력을 받아 실시간으로 추론하는 실습을 합니다.
+
+| 장비 | 역할 |
 |---|---|
-| 과정명 | NPU 기반 온디바이스 AI 모델 경량화ㆍ추론 실무 |
-| 교육시간 | 40시간 (주말 전일, 09:00~18:00) |
-| 교육일 | 10/25, 11/1, 11/7, 11/8, 11/14 (10/31 휴강) |
-| 방식 | 오프라인 |
-| 실습 장비 | Raspberry Pi 5 (8GB), Raspberry Pi AI HAT+ (13 TOPS), Camera Module 3 |
+| Raspberry Pi 5 8GB 스타트키트 | 추론을 실행하는 본체 보드 |
+| Raspberry Pi AI HAT+ 13 TOPS | 모델 추론을 가속하는 NPU 모듈 |
+| Raspberry Pi Camera Module 3 | 실시간 이미지 입력 |
 
-## 커리큘럼
+<br>
 
-### 1주차: 온디바이스 추론 기초
+## 🗓️ 커리큘럼
 
-| 차시 | 주제 | 내용 | 방식 |
-|---|---|---|---|
-| 1-1 | 온디바이스 AI와 Raspberry Pi NPU 이해 | Cloud AI vs On-device AI, CPU·GPU·NPU 역할 차이, NPU 연산 특성, 메모리·전력·연산 제약, Raspberry Pi 5와 NPU 가속기 구성 | 이론 |
-| 1-2 | Raspberry Pi NPU 실행환경 구성 및 점검 | Raspberry Pi OS, AI HAT+ 연결 구조, NPU Driver·Runtime, 장치 인식 확인, Python 환경, Camera 연결 및 입출력 점검 | 이론/실습 |
-| 1-3 | AI 추론 파이프라인 | 사전학습 모델 활용, 이미지·카메라 입력, Resize·Normalize, Tensor 변환, 추론·후처리, CPU/NPU 기본 실행 및 Baseline 측정 | 이론/실습 |
-| 1-4 | ONNX 변환 및 검증 | ONNX 개념, ONNX Export, Input/Output Shape, Opset, ONNX Runtime 실행, 원본/변환 모델 결과 및 Latency 비교 | 이론/실습 |
-| 1-5 | 모델 입출력 구조와 배포 오류 분석 | NCHW·NHWC, RGB·BGR, Shape·Data Type, Resize·Normalize 불일치, 전처리·입출력 오류 분석 및 해결 | 이론/실습 |
+1주차에는 NPU 실행 환경을 갖추고 모델을 ONNX로 변환해 검증하는 기초를 다루며, 2주차에는 그 모델을 경량화해 NPU에 배포하고 성능을 비교한 뒤 응용 프로젝트로 마무리합니다.
 
-### 2주차: 경량화와 NPU 배포
+### 1주차 온디바이스 추론 기초
 
-| 차시 | 주제 | 내용 | 방식 |
-|---|---|---|---|
-| 2-1 | FP32·FP16·INT8 모델 경량화 | 표현 방식, 모델 크기와 연산량, FP16 변환, INT8 Quantization, Calibration, 경량화 전·후 비교 | 이론 |
-| 2-2 | NPU용 모델 변환 및 배포 | ONNX와 NPU 실행모델 관계, NPU 지원 연산, 최적화·Quantization·Compile 구조, NPU 실행모델 생성 및 배포 | 이론 |
-| 2-3 | CPU·NPU 성능 및 경량화 효과 비교 | 동일 조건 CPU/NPU Benchmark, FP32/FP16/INT8 비교, Latency·FPS·Memory·정확도 분석 | 이론/실습 |
-| 2-4 | 온디바이스 추론 파이프라인 최적화 | 입력 Resolution, Camera FPS, Frame Sampling, 전·후처리 비용, CPU 부하, End-to-End Latency 최적화 | 이론/실습 |
-| 2-5 | 온디바이스 AI 응용 프로젝트 | 변환·경량화·NPU 추론을 하나의 Pipeline으로 통합, 이미지/Camera 응용 구현, 최적화 전·후 비교 및 발표 | 실습 |
+| 차시 | 주제 | 주요 내용 | 방식 |
+|:---:|---|---|:---:|
+| 1-1 | 온디바이스 AI와 Raspberry Pi NPU 이해 | Cloud AI와 On-device AI 비교, CPU와 GPU와 NPU의 역할 차이, 메모리와 전력 제약 | 이론 |
+| 1-2 | NPU 실행환경 구성 및 점검 | AI HAT+ 연결 구조, NPU Driver와 Runtime, 장치 인식 확인, 카메라 입출력 점검 | 이론, 실습 |
+| 1-3 | AI 추론 파이프라인 | 이미지와 카메라 입력, Resize와 Normalize, Tensor 변환, CPU와 NPU Baseline 측정 | 이론, 실습 |
+| 1-4 | ONNX 변환 및 검증 | ONNX Export, 입출력 Shape와 Opset, ONNX Runtime 실행, 변환 전후 Latency 비교 | 이론, 실습 |
+| 1-5 | 모델 입출력 구조와 배포 오류 분석 | NCHW와 NHWC, RGB와 BGR, 전처리 불일치로 생기는 오류 분석 및 해결 | 이론, 실습 |
 
-## 폴더 구조
+### 2주차 경량화와 NPU 배포
+
+| 차시 | 주제 | 주요 내용 | 방식 |
+|:---:|---|---|:---:|
+| 2-1 | FP32, FP16, INT8 모델 경량화 | FP16 변환, INT8 Quantization, Calibration, 경량화 전후 모델 크기 비교 | 이론 |
+| 2-2 | NPU용 모델 변환 및 배포 | NPU 지원 연산, Quantization과 Compile 구조, NPU 실행모델 생성 및 배포 | 이론 |
+| 2-3 | CPU와 NPU 성능 비교 | 동일 조건 Benchmark, 정밀도별 Latency와 FPS와 정확도 변화 분석 | 이론, 실습 |
+| 2-4 | 추론 파이프라인 최적화 | 입력 해상도, Camera FPS, Frame Sampling, End to End Latency 최적화 | 이론, 실습 |
+| 2-5 | 온디바이스 AI 응용 프로젝트 | 변환과 경량화와 NPU 추론을 하나의 파이프라인으로 통합한 응용 구현 및 발표 | 실습 |
+
+<br>
+
+## 📁 폴더 구조
 
 ```
-npu/
-├── day1/            # 1일차 실습
-│   └── test.py      # 환경 확인 (numpy, torch 버전 출력)
+.
+├── day1/
+│   └── test.py          # 패키지 설치 확인
+├── 명령어_복습.md        # 터미널, venv, pip 명령어 정리
 ├── requirements.txt
-├── 명령어_복습.md    # 터미널·venv·pip 명령어 정리
 └── README.md
 ```
 
-## 개발 환경 (로컬 PC, macOS)
+<br>
 
-- Python 3.12.10
-- PyTorch 2.12.0 (CPU only)
-- PyCharm, 인터프리터: 프로젝트의 `npu_env`
+## ⚙️ 개발 환경 설정
+
+Raspberry Pi에 배포하기 전 단계인 모델 변환과 검증은 노트북에서 진행하므로, 노트북에는 Python 3.12 가상환경을 만들고 CUDA 없이 동작하는 CPU 전용 PyTorch를 설치했습니다.
 
 ```bash
+# 가상환경 생성 및 활성화 (Windows는 npu_env\Scripts\activate)
 python -m venv npu_env
-source npu_env/bin/activate          # Windows: npu_env\Scripts\activate
+source npu_env/bin/activate
+
+# 패키지 설치
 pip install -r requirements.txt
 pip install torch==2.12.0 --index-url https://download.pytorch.org/whl/cpu
-```
 
-환경 확인:
-
-```bash
+# 설치 확인
 python day1/test.py
 ```
+
+| 패키지 | 용도 |
+|---|---|
+| torch 2.12.0 | 사전학습 모델 로드와 ONNX Export |
+| onnx, onnxscript | ONNX 모델 생성과 검증 |
+| onnxruntime | 변환한 모델의 CPU 추론과 Latency 측정 |
+| numpy, pandas, matplotlib | 전처리, 결과 정리, 성능 비교 그래프 |
+| scikit-learn, pillow | 평가 지표 계산과 이미지 입력 처리 |
