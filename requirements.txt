@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+pillow
+onnx
+onnxruntime
+onnxscript
+# CPU 전용 PyTorch: pip install torch==2.12.0 --index-url https://download.pytorch.org/whl/cpu
