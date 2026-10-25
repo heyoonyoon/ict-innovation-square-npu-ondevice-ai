@@ -17,12 +17,9 @@
 
 이 저장소는 클라우드가 아닌 기기 안에서 AI 모델을 돌리는 온디바이스 AI를 다루는 40시간 과정의 실습 코드와 정리 노트를 모아 둔 곳입니다. 과정은 사전학습 모델을 ONNX로 변환하고 FP16과 INT8로 경량화한 뒤, Raspberry Pi 5에 장착한 NPU 가속기에서 추론하여 CPU 대비 성능을 비교하는 흐름으로 진행됩니다.
 
-| 항목 | 내용 |
-|:---:|---|
-| 교육 기간 | 2026년 10월 25일 ~ 11월 14일, 주말 5일 |
-| 교육일 | 10/25, 11/1, 11/7, 11/8, 11/14 |
-| 교육 시간 | 하루 09:00 ~ 18:00, 총 40시간 |
-| 교육 방식 | 오프라인 대면 교육 |
+<div align="center">
+  <img src="assets/poster.png" alt="NPU 기반 온디바이스 AI 모델 경량화 추론 실무 과정 포스터" width="560">
+</div>
 
 <br>
 
@@ -44,13 +41,9 @@
 
 ### 1주차 온디바이스 추론 기초
 
-| 차시 | 주제 | 주요 내용 | 방식 |
-|:---:|---|---|:---:|
-| 1-1 | 온디바이스 AI와 Raspberry Pi NPU 이해 | Cloud AI와 On-device AI 비교, CPU와 GPU와 NPU의 역할 차이, 메모리와 전력 제약 | 이론 |
-| 1-2 | NPU 실행환경 구성 및 점검 | AI HAT+ 연결 구조, NPU Driver와 Runtime, 장치 인식 확인, 카메라 입출력 점검 | 이론, 실습 |
-| 1-3 | AI 추론 파이프라인 | 이미지와 카메라 입력, Resize와 Normalize, Tensor 변환, CPU와 NPU Baseline 측정 | 이론, 실습 |
-| 1-4 | ONNX 변환 및 검증 | ONNX Export, 입출력 Shape와 Opset, ONNX Runtime 실행, 변환 전후 Latency 비교 | 이론, 실습 |
-| 1-5 | 모델 입출력 구조와 배포 오류 분석 | NCHW와 NHWC, RGB와 BGR, 전처리 불일치로 생기는 오류 분석 및 해결 | 이론, 실습 |
+<div align="center">
+  <img src="assets/curriculum_week1.png" alt="1주차 커리큘럼" width="860">
+</div>
 
 ### 2주차 경량화와 NPU 배포
 
