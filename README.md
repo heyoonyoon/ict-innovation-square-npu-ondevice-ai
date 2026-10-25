@@ -41,9 +41,13 @@
 
 ### 1주차 온디바이스 추론 기초
 
-<div align="center">
-  <img src="assets/curriculum_week1.png" alt="1주차 커리큘럼" width="860">
-</div>
+| 차시 | 주제 | 주요 내용 | 방식 |
+|:---:|---|---|:---:|
+| 1-1 | 온디바이스 AI와 Raspberry Pi NPU 이해 | Cloud AI와 On-device AI 비교, CPU와 GPU와 NPU의 역할 차이, 메모리와 전력 제약 | 이론 |
+| 1-2 | NPU 실행환경 구성 및 점검 | AI HAT+ 연결 구조, NPU Driver와 Runtime, 장치 인식 확인, 카메라 입출력 점검 | 이론, 실습 |
+| 1-3 | AI 추론 파이프라인 | 이미지와 카메라 입력, Resize와 Normalize, Tensor 변환, CPU와 NPU Baseline 측정 | 이론, 실습 |
+| 1-4 | ONNX 변환 및 검증 | ONNX Export, 입출력 Shape와 Opset, ONNX Runtime 실행, 변환 전후 Latency 비교 | 이론, 실습 |
+| 1-5 | 모델 입출력 구조와 배포 오류 분석 | NCHW와 NHWC, RGB와 BGR, 전처리 불일치로 생기는 오류 분석 및 해결 | 이론, 실습 |
 
 ### 2주차 경량화와 NPU 배포
 
@@ -54,6 +58,16 @@
 | 2-3 | CPU와 NPU 성능 비교 | 동일 조건 Benchmark, 정밀도별 Latency와 FPS와 정확도 변화 분석 | 이론, 실습 |
 | 2-4 | 추론 파이프라인 최적화 | 입력 해상도, Camera FPS, Frame Sampling, End to End Latency 최적화 | 이론, 실습 |
 | 2-5 | 온디바이스 AI 응용 프로젝트 | 변환과 경량화와 NPU 추론을 하나의 파이프라인으로 통합한 응용 구현 및 발표 | 실습 |
+
+<br>
+
+## 🎥 실습 기록
+
+C02 실습에서는 Camera Module 3로 받은 영상을 Hailo-8L NPU로 추론해 실시간 객체 탐지를 실행했습니다. 모니터 없이 맥북에서 SSH로 명령을 입력하고 라즈베리파이 화면은 VNC로 받아 보았으며, 탐지 결과 창의 크기를 640×360으로 줄이고 카메라 입력을 15 FPS로 맞춰 화면 지연을 줄였습니다.
+
+<div align="center">
+  <img src="assets/c02_detection.jpg" alt="맥북 VNC 화면에 표시된 Hailo-8L 실시간 객체 탐지 결과" width="480">
+</div>
 
 <br>
 
