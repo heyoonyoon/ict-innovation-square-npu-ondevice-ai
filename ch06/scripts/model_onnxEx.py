@@ -3,7 +3,7 @@ import time
 import torch
 import onnx
 from torchvision.models import MobileNet_V2_Weights
-from torchvision.models.quantization import mobilenet_v2
+from torchvision.models import mobilenet_v2
 
 
 def export_to_onnx(model, input_shape, output_file):
