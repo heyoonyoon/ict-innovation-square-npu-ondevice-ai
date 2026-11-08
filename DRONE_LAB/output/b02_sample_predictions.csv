@@ -1,0 +1,11 @@
+sample_no,dataset_index,true_index,true_class,pred_index,pred_class,confidence,correct
+1,4187,2,sky,2,sky,0.9930912256240845,True
+2,1368,0,bird,0,bird,0.9986222982406616,True
+3,1210,0,bird,0,bird,0.5133605003356934,True
+4,1424,0,bird,0,bird,0.969359815120697,True
+5,1319,0,bird,0,bird,0.9911866784095764,True
+6,1600,0,bird,0,bird,0.9054296016693115,True
+7,467,0,bird,0,bird,0.9999819993972778,True
+8,2812,1,drone,1,drone,0.9693174362182617,True
+9,508,0,bird,0,bird,0.9997395873069763,True
+10,2358,1,drone,1,drone,0.5010753273963928,True

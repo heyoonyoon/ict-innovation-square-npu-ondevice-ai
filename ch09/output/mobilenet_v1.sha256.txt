@@ -1,0 +1,1 @@
+c0f3b5d4acfce3d8da2ba4226809c0a01849db7b08028c380740c3e353b25abd  mobilenet_v1.hef
