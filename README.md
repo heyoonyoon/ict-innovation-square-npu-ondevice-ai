@@ -24,6 +24,12 @@
 
 카메라 화면 전체를 보고 드론, 새, 빈 하늘 가운데 하나로 판별해 드론일 때 경보를 띄웁니다.
 
+<div align="center">
+  <img src="assets/p1_alarm_demo.gif" alt="새 사진에서는 경보가 없고 드론 사진에서 DRONE ALERT가 뜨는 시연" width="560">
+  <br>
+  <img src="assets/p1_setup.jpg" alt="Pi 카메라 모듈로 노트북 화면의 드론 사진을 비추는 모습" width="560">
+</div>
+
 | 항목 | 내용 |
 |---|---|
 | 모델 | ResNet18 전이학습, 3클래스 |
@@ -39,7 +45,9 @@
 드론에 박스를 치고 번호를 붙여 움직임을 따라가며, 같은 드론이 일정 시간 이상 잡히면 경보를 띄웁니다.
 
 <div align="center">
-  <img src="assets/drone_track_demo.png" alt="드론과 새에 번호 박스와 이동 경로가 그려진 추적 결과" width="720">
+  <img src="assets/p2_track_demo.gif" alt="실제 드론 영상을 Pi 카메라로 비춰 박스가 드론을 따라가는 시연" width="560">
+  <br>
+  <img src="assets/drone_track_demo.png" alt="합성 테스트 영상에서 드론과 새에 번호 박스와 이동 경로가 그려진 추적 결과" width="560">
 </div>
 
 | 항목 | 내용 |
@@ -52,6 +60,13 @@
 | 코드 | [`DRONE_TRACK/`](DRONE_TRACK) |
 
 <br>
+
+## 실습 현장
+
+<div align="center">
+  <img src="assets/course_banner.jpg" alt="2026.10.25부터 11.14까지 한국IT서비스산업협회 세미나실 교육 과정 안내판" width="270">
+  <img src="assets/hef_compile_vm.jpg" alt="노트북 VM의 Hailo Docker에서 HEF를 컴파일하고 옆에 라즈베리파이를 연결한 모습" width="360">
+</div>
 
 ## 실습 장비
 
