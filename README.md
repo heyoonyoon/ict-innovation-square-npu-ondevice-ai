@@ -10,12 +10,10 @@
 ![Hailo](https://img.shields.io/badge/Hailo--8L-13_TOPS-1f2937)
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi_5-AI_HAT+-A22846?logo=raspberrypi&logoColor=white)
 
-</div>
+<br>
 
-## 파이프라인
+<img src="assets/diagrams/01_pipeline.png" alt="학습, ONNX 변환, 양자화, 컴파일, 온디바이스 추론 5단계 파이프라인" width="900">
 
-<div align="center">
-  <img src="assets/pipeline.png" alt="모델 학습부터 라즈베리파이 NPU 추론까지의 5단계 파이프라인" width="900">
 </div>
 
 <br>
@@ -54,29 +52,40 @@
 |---|---|
 | 모델 | YOLOv8n 전이학습, 4클래스 (drone, bird, airplane, helicopter) |
 | 학습 | Colab T4 GPU, mAP50 0.845 |
-| 추적 | 칼만 필터로 다음 위치를 예측하고 IoU로 짝을 지어 번호 유지 |
 | NPU 속도 | 단독 104 FPS, 카메라부터 화면까지 약 45 FPS |
 | 컴파일 | AWS EC2(x86 Ubuntu)에서 Hailo DFC 3.33 |
 | 코드 | [`DRONE_TRACK/`](DRONE_TRACK) |
 
 <br>
 
+## 배운 것
+
+<div align="center">
+  <img src="assets/diagrams/02_transfer_learning.png" alt="사전학습 모델의 CNN은 고정하고 마지막 FC만 새로 학습하는 전이학습" width="900">
+  <img src="assets/diagrams/03_pytorch_loop.png" alt="데이터, 순전파, 손실, 역전파, 가중치 갱신을 epoch마다 반복하는 PyTorch 학습 루프" width="900">
+  <img src="assets/diagrams/08_tensor_format.png" alt="PyTorch는 NCHW float32, Hailo는 NHWC uint8 입력" width="900">
+  <img src="assets/diagrams/04_quantization.png" alt="Calibration과 scale로 FP32를 INT8로 바꾸고 모델 크기를 4배 줄이는 양자화" width="900">
+  <img src="assets/diagrams/05_hailo_compiler.png" alt="Docker 안의 Hailo 컴파일러가 Parse, Optimize, Compile로 HEF를 만드는 과정" width="900">
+  <img src="assets/diagrams/06_pi_inference.png" alt="카메라, 전처리, NPU 추론, 후처리, 추적과 경보로 이어지는 라즈베리파이 실시간 추론" width="900">
+  <img src="assets/diagrams/07_tracker.png" alt="후보, 포착, 추적, 놓침, 해제로 이어지는 추적기 상태" width="900">
+</div>
+
+<br>
+
 ## 실습 현장
 
 <div align="center">
-  <img src="assets/course_banner.jpg" alt="2026.10.25부터 11.14까지 한국IT서비스산업협회 세미나실 교육 과정 안내판" width="270">
-  <img src="assets/hef_compile_vm.jpg" alt="노트북 VM의 Hailo Docker에서 HEF를 컴파일하고 옆에 라즈베리파이를 연결한 모습" width="360">
+  <img src="assets/course_banner.jpg" alt="2026년 10월 25일부터 11월 14일까지 진행된 교육 과정 안내판" width="240">
+  <img src="assets/badge.jpg" alt="NPU 기반 온디바이스AI 모델 경량화 추론 실무 교육 교육생 명찰" width="240">
+  <br>
+  <img src="assets/hef_compile_vm.jpg" alt="노트북 VM의 Hailo Docker에서 HEF를 컴파일하고 옆에 라즈베리파이를 연결한 모습" width="490">
 </div>
-
-## 실습 장비
 
 | 장비 | 역할 |
 |---|---|
 | Raspberry Pi 5 8GB | 추론 본체 |
 | AI HAT+ (Hailo-8L, 13 TOPS) | NPU |
 | Camera Module 3 | 영상 입력 |
-
-## 폴더
 
 | 폴더 | 내용 |
 |---|---|
